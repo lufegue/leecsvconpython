@@ -1,0 +1,11 @@
+ID_COLOR	Color
+1	Blanco
+2	Negro
+3	Rojo
+4	Verde
+5	Azul
+6	Amarillo
+7	Celeste
+8	Rosado
+9	Marron
+10	Naranja
