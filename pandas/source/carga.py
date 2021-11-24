@@ -3,15 +3,25 @@ from openpyxl import Workbook
 from openpyxl import load_workbook
 
 
-#Leemos en txt
-
+#Leemos en TXT
+print('Iniciando el proceso...')
+print('Leyendo archivo fuente TXT...')
 datos = pd.read_csv('input/Colores.txt', sep=None, engine="python")
-print(datos.head(2))
-datos.to_excel('output/reporte.xlsx',sheet_name='Colores',
+
+#Guardamos en Excel en DataFrame cargado del archivo TXT
+print('Guardando en archivo de salida Excel hoja Colores...')
+datos.to_excel('output/reporte.xlsx',sheet_name='Colores', index=False,
                 engine = 'openpyxl')
-#datos1 = pd.read_csv('input/Ciudades.csv')
-#datos1.to_excel('output/reporte.xlsx',sheet_name='Ciudades',
-#                engine = 'openpyxl')
+
+#Leemos en CSV
+print('Leyendo archivo fuente CSV...')
+datos1 = pd.read_csv('input/Ciudades.csv', sep=";")
+
+#Guardamos en Excel en DataFrame cargado del archivo CSV
+print('Guardando en archivo de salida Excel hoja Ciudades...')
+with pd.ExcelWriter('output/reporte.xlsx', mode='a') as writer:
+                    datos1.to_excel(writer, sheet_name='Ciudades', index=False)
+print('El proceso ha finalizado con exito.')
 
 
 #Creamos Libro
